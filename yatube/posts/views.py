@@ -3,7 +3,6 @@ from django.shortcuts import render
 from .models import Post, Group
 
 
-
 def index(request):
     posts = Post.objects.all()[:10]
     print(posts)
