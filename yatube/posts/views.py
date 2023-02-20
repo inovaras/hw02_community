@@ -6,7 +6,6 @@ from .consts import POSTS_NUMBERS
 
 def index(request):
     posts = Post.objects.all()[:POSTS_NUMBERS]
-    print(posts)
     context = {
         'posts': posts,
     }

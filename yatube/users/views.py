@@ -15,4 +15,5 @@ class SignUp(CreateView):
     success_url = reverse_lazy('posts:index')
     template_name = 'users/signup.html'
 
+
 # Create your views here.
