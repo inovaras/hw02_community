@@ -5,9 +5,11 @@
 {% block content %}
 <!-- класс py-5 создает отступы сверху и снизу блока -->
 <div class="container py-5">
-  {% for post in posts %}
-    {% include "includes/posts_rendering.html" with show_group_link=True %}
-  {% endfor %}
+{% for post in page_obj %}
+  {% include "includes/posts_rendering.html" with show_group_link=True %}
+{% endfor %}
+{% include 'posts/includes/paginator.html' %}
+
 </div>
 {% endblock %}
 
