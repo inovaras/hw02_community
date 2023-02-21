@@ -6,18 +6,8 @@
 <!-- класс py-5 создает отступы сверху и снизу блока -->
 <div class="container py-5">
   {% for post in posts %}
-  <ul>
-    <li>
-      Автор: {{ post.author.get_full_name }}
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  <p>{{ post.text }}</p>
-  {% include "includes/posts_rendering.html" %}
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
+    {% include "includes/posts_rendering.html" with show_group_link=True %}
+  {% endfor %}
 </div>
 {% endblock %}
 

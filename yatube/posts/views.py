@@ -1,11 +1,11 @@
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Post, Group
-from .consts import POSTS_NUMBERS
+from django.conf import settings
 
 
 def index(request):
-    posts = Post.objects.all()[:POSTS_NUMBERS]
+    posts = Post.objects.all()[: settings.POSTS_NUMBERS]
     context = {
         'posts': posts,
     }
@@ -14,7 +14,7 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).all()[:POSTS_NUMBERS]
+    posts = Post.objects.filter(group=group).all()[: settings.POSTS_NUMBERS]
     context = {
         'group': group,
         'posts': posts,
