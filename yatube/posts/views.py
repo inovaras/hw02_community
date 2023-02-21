@@ -2,8 +2,10 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Post, Group
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def index(request):
     posts = Post.objects.all()[: settings.POSTS_NUMBERS]
     context = {
