@@ -10,7 +10,7 @@ from .models import Post, Group
 @login_required()
 def index(request):
     post_list = Post.objects.all()
-    paginator = Paginator(post_list, 10)
+    paginator = Paginator(post_list, settings.POSTS_NUMBERS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -21,9 +21,12 @@ def index(request):
 
 def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
-    posts = Post.objects.filter(group=group).all()[: settings.POSTS_NUMBERS]
+    post_list = Post.objects.filter(group=group).all()
+    paginator = Paginator(post_list, settings.POSTS_NUMBERS)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     context = {
         'group': group,
-        'posts': posts,
+        'page_obj': page_obj,
     }
     return render(request, 'posts/group_list.html', context)
