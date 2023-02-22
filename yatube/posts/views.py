@@ -6,7 +6,6 @@ from django.shortcuts import render
 from .models import Post, Group
 
 
-
 @login_required()
 def index(request):
     post_list = Post.objects.all()
