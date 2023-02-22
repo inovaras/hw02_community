@@ -1,12 +1,10 @@
-<html>
-  <head>
-    <title>{{ just_title }}</title>
-  </head>
-  <body>
-    {% include 'includes/header.html' %}
-    <h1>{{ just_title }}</h1>
-    <p>{{ just_text }}</p>
-    {% include 'includes/footer.html' %}
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+<h3>Привет, я автор :)</h3>
+<p>
+  <p>{{ github }}</p>
+  <p>{{ telegram }}</p>
+</p>
+{% endblock %}
 

@@ -6,20 +6,10 @@ class AboutAuthorView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Здесь можно произвести какие-то действия для создания контекста.
-        # Для примера в словарь просто передаются две строки
-        context['just_title'] = 'Очень простая страница'
-        context['just_text'] = ('На создание этой страницы '
-                                'у меня ушло пять минут! Ай да я.')
+        context['github'] = 'Гитхаб: https://github.com/inovaras'
+        context['telegram'] = 'Телеграмм: https://github.com/inovaras'
         return context
 
 
 class AboutTechView(TemplateView):
     template_name = 'about/tech.html'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        # Здесь можно произвести какие-то действия для создания контекста.
-        # Для примера в словарь просто передаются две строки
-        context['just_title'] = '  Гитхаб: https://github.com/inovaras'
-        context['just_text'] = ('Резюме: https://ekaterinburg.hh.ru/resume/975c189fff0b13dd540039ed1f317a4e386462')
-        return context
