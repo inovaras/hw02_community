@@ -7,7 +7,6 @@
   </li>
 </ul>
 <p>{{ post.text }}</p>
-
 {% if post.group and show_group_link %}
   <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
 {% endif %}
